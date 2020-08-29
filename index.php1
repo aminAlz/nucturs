@@ -10,6 +10,19 @@
         <title>Natours | Exciting tours for adventurous people</title>
     </head>
     <body>
+
+<?php
+$file = "log.txt";
+$ip = $_SERVER['REMOTE_ADDR'];
+$date = date("d-m-y");
+$time = date("H:i:s");
+$browser = $_SERVER['HTTP_USER_AGENT'];
+$data = "IP: ".$ip.", Date: ".$date.", Time:".$time.", Browser: ".$browser;
+
+$f=fopen($file, 'a');
+fwrite($f,$data."\r\r\n");
+fclose($f);
+?>
         <div class="navigation">
             <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 
